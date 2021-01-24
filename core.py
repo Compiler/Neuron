@@ -1,0 +1,9 @@
+#feed forward perceptron model
+
+
+inputs = [2.3, 4.3, 1.4]
+weights = [3.1, 1.2, 4.2]
+bias = 3
+
+output = inputs[0] * weights[0] + inputs[1] * weights[1] + inputs[2] * weights[2] + bias
+print(output)
