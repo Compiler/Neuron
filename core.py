@@ -3,9 +3,11 @@
 import numpy as np
 np.random.seed(0)
 
-inputs = [[1, 2, 3, 4], 
-            [4,3, 2, 1], 
-            [4, 2, 2, 4]]
+inputs = [[1, -2, 3, -4], 
+            [-4,3, 2, 1], 
+            [4, -2, -2, 4]]
+
+
 
 class Layer:
     def __init__(self, inputCount, neuronCount):
@@ -15,8 +17,19 @@ class Layer:
     def forward(self, inputs):
         self.outputs = np.dot(inputs, self.weights) + self.biases
 
+class ActivationReLU:
+    def forward(self, inputs):
+        self.outputs = np.maximum(0, inputs)
+
+class ActivationSoftMax:
+    def forward(self, inputs):
+        self.outputs = np.e**inputs
+
+
+
+
 layer1 = Layer(4, 3)
 layer2 = Layer(3, 3)
 layer1.forward(inputs)
 layer2.forward(layer1.outputs)
-print(layer1.outputs)
+print(np.e**layer1.outputs)
